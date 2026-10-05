@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Cta } from "@/components/shared";
 
 /** Barra fixa no mobile, aparece depois da primeira dobra. */
-export default function StickyCta() {
+export default function StickyCta({ label }: { label?: string } = {}) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function StickyCta() {
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-x-0 bottom-0 z-50 border-t border-secondary/10 bg-primary/95 p-3 backdrop-blur-md sm:hidden"
         >
-          <Cta className="w-full" />
+          <Cta className="w-full">{label}</Cta>
         </motion.div>
       )}
     </AnimatePresence>
